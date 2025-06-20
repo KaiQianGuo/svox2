@@ -1,0 +1,41 @@
+1.配置环境
+#直接用RF的环境torch
+#numpy需要降级（遇到报错再改）
+pip uninstall numpy
+pip install numpy==1.24.4
+#遇到没有svox的情况，到根目录运行
+cd..
+pip install -e .
+
+2.训练
+cd opt
+python opt.py ../autorecon --config configs/llff.json --train_dir ../ckpt/PL3 | tee /data/disk2/guokaiqian/svox2-master/ckpt/PL3/train.log
+
+
+#PL：你给实验起的名字（结果会保存在 ckpt/PL/）
+#0：使用 GPU 0，如需多个 GPU 可以写多个 ID，用空格分隔
+#../autorecon：数据路径（注意这是相对于 opt/ 的路径）
+#-c configs/llff.json：使用 LLFF 预设配置
+3.渲染——生成图片
+cd opt
+python render_imgs_circle.py /data/disk2/guokaiqian/svox2-master/ckpt/PL3/ckpt.npz ../autorecon
+
+#渲染出的图片默认会保存在opt目录
+4.合成mp4
+ffmpeg -framerate 30 -i frame_%04d.png -c:v libx264 -pix_fmt yuv420p spiral.mp4
+#在渲染输出目录运行这条命令
+#%04d 表示 frame_0000.png 这类命名。
+#framerate 30：每秒 30 帧（可根据实际修改）。
+#libx264 和 yuv420p 是兼容所有播放器的编码方案。
+
+5.tensorboard
+#在svox2-master/根目录运行
+tensorboard --logdir /data/disk2/guokaiqian/svox2-master/ckpt/PL3 --port=6006
+tensorboard --logdir=logs --port=6006
+
+#日志默认保存在：
+#svox2-master/
+#├── logs/
+#│   └── PL/
+#│       └── events.out.tfevents...
+

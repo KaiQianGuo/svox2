@@ -1,0 +1,9 @@
+# ninja log v5
+1	16942	1750313218058919955	/data/disk2/guokaiqian/svox2-master/build/temp.linux-x86_64-cpython-38/svox2/csrc/svox2.o	f4c854b816870039
+2	41086	1750313242175542360	/data/disk2/guokaiqian/svox2-master/build/temp.linux-x86_64-cpython-38/svox2/csrc/svox2_kernel.o	2518c14751197d3a
+0	41309	1750313242395548014	/data/disk2/guokaiqian/svox2-master/build/temp.linux-x86_64-cpython-38/svox2/csrc/loss_kernel.o	8815b30f167a2b93
+0	41394	1750313242483550277	/data/disk2/guokaiqian/svox2-master/build/temp.linux-x86_64-cpython-38/svox2/csrc/optim_kernel.o	24dfc582a4c59e06
+0	41500	1750313242587552951	/data/disk2/guokaiqian/svox2-master/build/temp.linux-x86_64-cpython-38/svox2/csrc/misc_kernel.o	87b6165ee498e3f7
+1	41922	1750313243007563747	/data/disk2/guokaiqian/svox2-master/build/temp.linux-x86_64-cpython-38/svox2/csrc/render_lerp_kernel_cuvol.o	19e93c870de6059a
+1	42310	1750313243399573820	/data/disk2/guokaiqian/svox2-master/build/temp.linux-x86_64-cpython-38/svox2/csrc/render_lerp_kernel_nvol.o	175e6ebe6bf585e5
+1	42567	1750313243655580399	/data/disk2/guokaiqian/svox2-master/build/temp.linux-x86_64-cpython-38/svox2/csrc/render_svox1_kernel.o	63d5aa0a87b19933
